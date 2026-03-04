@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Still Life</title>
+
+<style>
+body {
+  margin: 0;
+  background: #e4573d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+  width: 1100px;
+  height: 750px;
+  transform: scale(1.05);
+}
+
+/* ================= COMPUTER ================= */
+
+.computer {
+  position: absolute;
+  left: 400px;
+  top: 120px;
+  width: 340px;
+  height: 360px;
+  background: linear-gradient(#d8d2c8, #bfb8ae);
+  border-radius: 16px;
+}
+
+.screen {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  width: 270px;
+  height: 190px;
+  background: radial-gradient(circle at 50% 30%, #2b2b2b, #000);
+  border-radius: 22px;
+  animation: screenGlow 4s ease-in-out infinite;
+}
+
+@keyframes screenGlow {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(1.2); }
+}
+
+.slot {
+  position: absolute;
+  bottom: 90px;
+  left: 85px;
+  width: 170px;
+  height: 16px;
+  background: #222;
+  border-radius: 4px;
+}
+
+.keyboard {
+  position: absolute;
+  bottom: -75px;
+  left: 15px;
+  width: 310px;
+  height: 75px;
+  background: #c9c2b8;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 6px;
+  padding: 8px;
+}
+
+.key {
+  background: #b5aea4;
+  border-radius: 3px;
+}
+
+/* ================= SPHERE ================= */
+
+.sphere {
+  position: absolute;
+  left: 120px;
+  top: 380px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #d9d9d9);
+}
+
+/* ================= ORANGES ================= */
+
+.orange {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  
+  /* gradient */
+  background: radial-gradient(circle at 30% 30%, #ffcc66, #f57c00);
+  background-size: 200% 200%;
+  
+  /* animation */
+  animation: lightShift 7s ease-in-out infinite;
+}
+
+/* top orange */
+.orange.top {
+  top: 40px;
+  left: 470px;
+}
+
+/* bottom orange */
+.orange.bottom {
+  bottom: 120px;
+  left: 440px;
+}
+
+/* leaf */
+.leaf {
+  position: absolute;
+  width: 55px;
+  height: 28px;
+  background: linear-gradient(to right, #4caf50, #2e7d32);
+  border-radius: 50px 50px 0 50px;
+  transform: rotate(-25deg);
+  top: -18px;
+  left: 38px;
+}
+
+/* smooth light movement */
+@keyframes lightShift {
+  0%   { background-position: 30% 30%; }
+  50%  { background-position: 65% 65%; }
+  100% { background-position: 30% 30%; }
+}
+/* ================= BOTTLE ================= */
+
+.bottle {
+  position: absolute;
+  right: 100px;
+  top: 230px;
+  width: 170px;
+  height: 360px;
+  border-radius: 80px 80px 30px 30px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.55),
+    rgba(255,255,255,0.15)
+  );
+  border: 3px solid rgba(255,255,255,0.3);
+  overflow: hidden;
+}
+
+.bottle::before {
+  content: "";
+  position: absolute;
+  top: -55px;
+  left: 50px;
+  width: 70px;
+  height: 70px;
+  border-radius: 14px;
+  background: linear-gradient(#c49a6c, #8d6e63);
+}
+
+.bottle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  animation: shine 5s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  60% { left: 120%; }
+  100% { left: 120%; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="scene">
+
+  <div class="sphere"></div>
+
+  <div class="computer">
+    <div class="screen"></div>
+    <div class="slot"></div>
+
+    <div class="keyboard">
+      <!-- 48 keys (4 rows x 12 columns) -->
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+      <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+    </div>
+
+  </div>
+
+  <div class="orange top">
+    <div class="leaf"></div>
+  </div>
+
+  <div class="orange bottom">
+    <div class="leaf"></div>
+  </div>
+
+  <div class="bottle"></div>
+
+</div>
+
+</body>
+</html>
